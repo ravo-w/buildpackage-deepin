@@ -169,11 +169,13 @@ jobs:
         with:
           name: results-all
           path: results
-  build-arch:
+ build-arch:
     needs: build-source
     strategy:
       fail-fast: false
-      matrix: ${{fromJson(needs.build-source.outputs.matrix)}}
+      matrix:
+        arch: [amd64]
+        runson: [ubuntu-22.04]
     runs-on: ${{ matrix.runson }}
     name: Build package on ${{ matrix.arch }}
     steps:
