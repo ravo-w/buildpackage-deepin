@@ -169,7 +169,7 @@ jobs:
         with:
           name: results-all
           path: results
- build-arch:
+  build-arch:
     needs: build-source
     strategy:
       fail-fast: false
